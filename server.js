@@ -10,7 +10,10 @@ app.get('/', function (req, res) {
 	// displayForm(res);
   console.log(req);
   console.log('get')
-  console.log(req.d);
+  console.log(req.query);
+  if (req.query.d == 'Please return OK so that I know your service works'){
+    res.json('OK':'OK')
+  }
   // console.log(res);
   res.json({ 'answer': 'answer 1'})
 });
