@@ -26,7 +26,7 @@ app.get('/', function (req, res) {
   } else if (question == 'How did you hear about this position?'){
     res.send('AngelList')
   } else if (question == 'Please list your relevant university degree(s).') {
-    res.send('Pace University, Seidenberg School of Computer Science and Information\nSUNY Binghamton, Harpur College of Arts and Science ')
+    res.send('Pace University, Seidenberg School of Computer Science and Information\n\rSUNY Binghamton, Harpur College of Arts and Science ')
   } else if (question == 'Please provide a URL where we can download your resume and cover letter.'){
     res.send('https://drive.google.com/file/d/1UQB_sFeRWeQ6upbExBmSMIcmYEqntT8T/view?usp=sharing')
   } else if (question == 'Please provide a URL where we can download the source code of your resume submission web service.') {
@@ -34,7 +34,11 @@ app.get('/', function (req, res) {
   } else if (question == 'Can you provide proof of eligibility to work in the US?'){
     res.send('Yes')
   } else if (question == 'Please solve this puzzle: ABCD A=--- B>--- C->-- D<---') {
-    res.send('')
+    res.send(' ABCD
+A=>>>
+B<=<<
+C<>=<
+D<>>=')
   }
   // console.log(res);
   res.send('OK')
