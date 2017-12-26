@@ -33,7 +33,7 @@ app.get('/', function (req, res) {
     res.send('https://github.com/rcohen0511/EngineMedia')
   } else if (question == 'Can you provide proof of eligibility to work in the US?'){
     res.send('Yes')
-  } else if (question.startsWith('Please solve this puzzle: ABCD') {
+  } else if (question.startsWith('Please solve this puzzle: ABCD')) {
     console.log(question)
     res.send('figuring out puzzle')
   }
