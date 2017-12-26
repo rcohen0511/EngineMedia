@@ -10,7 +10,7 @@ app.get('/', function (req, res) {
 	// displayForm(res);
   console.log(req);
   console.log('get')
-  console.log(req.path);
+  console.log(req.d);
   // console.log(res);
   res.json({ 'answer': 'answer 1'})
 });
