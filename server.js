@@ -10,7 +10,8 @@ app.get('/', function (req, res) {
 	// displayForm(res);
   console.log(req);
   console.log('get')
-  res.json({ 'answer': 'answer 1'})
+  console.log(res);
+  // res.json({ 'answer': 'answer 1'})
 });
 
 app.post('/', function (req, res) {
