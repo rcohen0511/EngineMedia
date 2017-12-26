@@ -12,11 +12,17 @@ app.get('/', function (req, res) {
   console.log('get')
   console.log(req.query);
   console.log(req.query['d']);
-  if (req.query['d'] == 'Please return OK so that I know your service works'){
+
+  var question = req.query['d'];
+  if (question == 'Please return OK so that I know your service works.'){
     res.send('OK')
+  } else if (question == 'What is your email address?') {
+    res.send('rcohen0511@gmail.com')
+  } else if (question == 'Please provide a phone number we can use to reach you.'){
+    res.send('917-416-0409')
   }
   // console.log(res);
-  // res.send('OK')
+  res.send('OK')
 });
 
 app.post('/', function (req, res) {
