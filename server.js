@@ -34,11 +34,7 @@ app.get('/', function (req, res) {
   } else if (question == 'Can you provide proof of eligibility to work in the US?'){
     res.send('Yes')
   } else if (question == 'Please solve this puzzle: ABCD A=--- B>--- C->-- D<---') {
-    res.send(' ABCD
-A=>>>
-B<=<<
-C<>=<
-D<>>=')
+    res.send('ABCD\nA=>>>\nB<=<<\nC<>=<\nD<>>=')
   }
   // console.log(res);
   res.send('OK')
