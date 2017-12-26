@@ -8,7 +8,7 @@ console.log('todo list RESTful API server started on: ' + port);
 
 app.get('/', function (req, res) {
 	// displayForm(res);
-  console.log(req);
+  // console.log(req);
   console.log('get')
   console.log(req.query);
   if (req.query.d == 'Please return OK so that I know your service works'){
