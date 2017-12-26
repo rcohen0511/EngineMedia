@@ -1,0 +1,19 @@
+{
+  "name": "enginemedia",
+  "version": "1.0.0",
+  "description": "",
+  "main": "node.js",
+  "dependencies": {
+    "babel-runtime": "^6.26.0",
+    "express": "^4.16.2",
+    "http": "0.0.0",
+    "winston": "^2.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
