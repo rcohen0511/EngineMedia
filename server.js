@@ -6,14 +6,14 @@ app.listen(port);
 
 console.log('todo list RESTful API server started on: ' + port);
 
-app.get('/questions', function (req, res) {
+app.get('/', function (req, res) {
 	// displayForm(res);
   console.log(req);
   console.log('get')
   res.json({ 'answer': 'answer 1'})
 });
 
-app.post('/books', function (req, res) {
+app.post('/', function (req, res) {
 	console.log('post')
   res.json({ 'test': 'test'})
 });
