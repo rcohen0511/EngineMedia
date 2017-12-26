@@ -25,6 +25,8 @@ app.get('/', function (req, res) {
     res.send('Software Engineer with Fullstack, Backend, or Frontend experience - bRealTime - New York or Chicago')
   } else if (question == 'How did you hear about this position?'){
     res.send('AngelList')
+  } else if (question == 'How many years of software development experience do you have?'){
+    res.send('3')
   } else if (question == 'Please list your relevant university degree(s).') {
     res.send('Pace University, Seidenberg School of Computer Science and Information\n\rSUNY Binghamton, Harpur College of Arts and Science ')
   } else if (question == 'Please provide a URL where we can download your resume and cover letter.'){
@@ -33,7 +35,7 @@ app.get('/', function (req, res) {
     res.send('https://github.com/rcohen0511/EngineMedia')
   } else if (question == 'Can you provide proof of eligibility to work in the US?'){
     res.send('Yes')
-  } else if (question.startsWith('Please solve this puzzle: ABCD')) {
+  } else if (question.startsWith('Please solve this puzzle')) {
     console.log(question)
     res.send('figuring out puzzle')
   }
