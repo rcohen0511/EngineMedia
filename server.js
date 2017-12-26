@@ -12,7 +12,7 @@ app.get('/', function (req, res) {
   console.log('get')
   console.log(req.query);
   if (req.query.d == 'Please return OK so that I know your service works'){
-    res.json({'OK':'OK'})
+    res.send('OK')
   }
   // console.log(res);
   res.json({ 'answer': 'answer 1'})
