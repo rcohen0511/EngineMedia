@@ -15,7 +15,7 @@ app.get('/', function (req, res) {
     res.send('OK')
   }
   // console.log(res);
-  res.json({ 'answer': 'answer 1'})
+  res.send('OK')
 });
 
 app.post('/', function (req, res) {
