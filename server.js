@@ -11,11 +11,12 @@ app.get('/', function (req, res) {
   // console.log(req);
   console.log('get')
   console.log(req.query);
-  if (req.query.d == 'Please return OK so that I know your service works'){
+  console.log(req.query['d']);
+  if (req.query['d'] == 'Please return OK so that I know your service works'){
     res.send('OK')
   }
   // console.log(res);
-  res.send('OK')
+  // res.send('OK')
 });
 
 app.post('/', function (req, res) {
