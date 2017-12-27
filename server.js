@@ -1,40 +1,33 @@
+// set up server
 var express = require('express'),
   app = express(),
   port = process.env.PORT || 3000;
-
 app.listen(port);
-
-console.log('todo list RESTful API server started on: ' + port);
-
+// handle get requests
 app.get('/', function (req, res) {
-  console.log(req.query['d']);
-
   var question = req.query['d'];
-  // var question = 'Please solve this puzzle:\nABCD\nA-->-\nB-=--\nC->--\nD-<--'
-  // var puzzle = []
-
   if (question == 'Please return OK so that I know your service works.'){
-    res.send('OK')
+    res.send('OK');
   } else if (question == 'What is your email address?') {
-    res.send('rcohen0511@gmail.com')
+    res.send('rcohen0511@gmail.com');
   } else if (question == 'Please provide a phone number we can use to reach you.'){
-    res.send('917-416-0409')
+    res.send('917-416-0409');
   } else if (question == 'Which position are you applying for?') {
-    res.send('Software Engineer with Fullstack, Backend, or Frontend experience - bRealTime - New York or Chicago')
+    res.send('Software Engineer with Fullstack, Backend, or Frontend experience - bRealTime - New York or Chicago');
   } else if (question == 'How did you hear about this position?'){
-    res.send('AngelList')
+    res.send('AngelList');
   } else if (question == 'How many years of software development experience do you have?'){
     res.send('3')
   } else if (question == 'Please list your relevant university degree(s).') {
-    res.send('Pace University, Seidenberg School of Computer Science and Information, SUNY Binghamton, Harpur College of Arts and Science ')
+    res.send('Pace University, Seidenberg School of Computer Science and Information, SUNY Binghamton, Harpur College of Arts and Science ');
   } else if (question == 'Please provide a URL where we can download your resume and cover letter.'){
-    res.send('https://drive.google.com/file/d/1UQB_sFeRWeQ6upbExBmSMIcmYEqntT8T/view?usp=sharing')
+    res.send('https://drive.google.com/file/d/1UQB_sFeRWeQ6upbExBmSMIcmYEqntT8T/view?usp=sharing');
   } else if (question == 'Please provide a URL where we can download the source code of your resume submission web service.') {
-    res.send('https://github.com/rcohen0511/EngineMedia')
+    res.send('https://github.com/rcohen0511/EngineMedia');
   } else if (question == 'Can you provide proof of eligibility to work in the US?'){
-    res.send('Yes')
+    res.send('Yes');
   } else if (question == 'What is your full name?'){
-    res.send('Robert Cohen')
+    res.send('Robert Cohen');
   } else if (question.startsWith('Please solve this puzzle')) {
     var result = '';
     var a;
@@ -43,8 +36,6 @@ app.get('/', function (req, res) {
     var d;
     var info = question.split("\n");
     var map = [a,b,c,d]
-
-    console.log(info);
     // I know this is probably not the most efficient way to do this, but
     // I am a bit stuck on how to do this better so I will just move forward.
     // These nested for loops build out an array holding a value for each
@@ -73,36 +64,23 @@ app.get('/', function (req, res) {
       var answer = ''
       for (let i = 0; i < map.length; i++){
         if (map[index]>map[i]){
-          answer += '>'
+          answer += '>';
         }
         else if (map[index]<map[i]){
-          answer += '<'
+          answer += '<';
         }
         else if (map[index]==map[i]){
-          answer += '='
+          answer += '=';
         }
       }
-      return answer
+      return answer;
     }
-
-    result += 'ABCD\n'
-    result += 'A'+ buildString(0,map) + '\n'
-    result += 'B'+ buildString(1,map) + '\n'
-    result += 'C'+ buildString(2,map) + '\n'
-    result += 'D'+ buildString(3,map)
-
-    console.log(result)
+    // End function
+    result += 'ABCD\n';
+    result += 'A'+ buildString(0,map) + '\n';
+    result += 'B'+ buildString(1,map) + '\n';
+    result += 'C'+ buildString(2,map) + '\n';
+    result += 'D'+ buildString(3,map);
     res.send(result);
   }
-
-
 });
-
-app.post('/', function (req, res) {
-	console.log('post')
-  res.json({ 'test': 'test'})
-});
-
-function displayForm(res){
-    console.log(res)
-}
