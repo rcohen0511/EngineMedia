@@ -33,6 +33,8 @@ app.get('/', function (req, res) {
     res.send('https://github.com/rcohen0511/EngineMedia')
   } else if (question == 'Can you provide proof of eligibility to work in the US?'){
     res.send('Yes')
+  } else if (question == 'What is your full name?'){
+    res.send('Robert Cohen')
   } else if (question.startsWith('Please solve this puzzle')) {
     var result = '';
     var a;
@@ -64,22 +66,23 @@ app.get('/', function (req, res) {
         }
       }
     }
+    console.log(map)
     // The next bit of code structures the answer in the appropriate format
     // using the fuction bellow and the hash table built above
     function buildString(index, map){
-      var result = ''
+      var answer = ''
       for (let i = 0; i < map.length; i++){
         if (map[index]>map[i]){
-          result += '>'
+          answer += '>'
         }
         else if (map[index]<map[i]){
-          result += '<'
+          answer += '<'
         }
         else if (map[index]==map[i]){
-          result += '='
+          answer += '='
         }
       }
-      return result
+      return answer
     }
 
     result += 'ABCD\n'
@@ -88,6 +91,7 @@ app.get('/', function (req, res) {
     result += 'C'+ buildString(2) + '\n'
     result += 'D'+ buildString(3)
 
+    console.log(result)
     res.send(result);
   }
 
