@@ -66,7 +66,7 @@ app.get('/', function (req, res) {
         }
       }
     }
-    console.log(map)
+    // console.log(map)
     // The next bit of code structures the answer in the appropriate format
     // using the fuction bellow and the hash table built above
     function buildString(index, map){
@@ -86,10 +86,10 @@ app.get('/', function (req, res) {
     }
 
     result += 'ABCD\n'
-    result += 'A'+ buildString(0) + '\n'
-    result += 'B'+ buildString(1) + '\n'
-    result += 'C'+ buildString(2) + '\n'
-    result += 'D'+ buildString(3)
+    result += 'A'+ buildString(0,map) + '\n'
+    result += 'B'+ buildString(1,map) + '\n'
+    result += 'C'+ buildString(2,map) + '\n'
+    result += 'D'+ buildString(3,map)
 
     console.log(result)
     res.send(result);
