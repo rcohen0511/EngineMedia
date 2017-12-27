@@ -26,9 +26,9 @@ app.get('/', function (req, res) {
   } else if (question == 'How many years of software development experience do you have?'){
     res.send('3')
   } else if (question == 'Please list your relevant university degree(s).') {
-    res.send('Pace University, Seidenberg School of Computer Science and Information\n\rSUNY Binghamton, Harpur College of Arts and Science ')
+    res.send('Pace University, Seidenberg School of Computer Science and Information, SUNY Binghamton, Harpur College of Arts and Science ')
   } else if (question == 'Please provide a URL where we can download your resume and cover letter.'){
-    res.send('https://drive.google.com/file/d/1UQB_sFeRWeQ6upbExBmSMIcmYEqntT8T/view?usp=sharing')
+    res.send('Only including a resume as we have already started corespondence: https://drive.google.com/file/d/1UQB_sFeRWeQ6upbExBmSMIcmYEqntT8T/view?usp=sharing')
   } else if (question == 'Please provide a URL where we can download the source code of your resume submission web service.') {
     res.send('https://github.com/rcohen0511/EngineMedia')
   } else if (question == 'Can you provide proof of eligibility to work in the US?'){
