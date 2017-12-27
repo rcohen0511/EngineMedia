@@ -10,8 +10,8 @@ app.get('/', function (req, res) {
   console.log(req.query['d']);
 
   var question = req.query['d'];
-  var question = 'Please solve this puzzle:\nABCD\nA-->-\nB-=--\nC->--\nD-<--'
-  var puzzle = []
+  // var question = 'Please solve this puzzle:\nABCD\nA-->-\nB-=--\nC->--\nD-<--'
+  // var puzzle = []
 
   if (question == 'Please return OK so that I know your service works.'){
     res.send('OK')
