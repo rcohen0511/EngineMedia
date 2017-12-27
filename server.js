@@ -7,13 +7,11 @@ app.listen(port);
 console.log('todo list RESTful API server started on: ' + port);
 
 app.get('/', function (req, res) {
-	// displayForm(res);
-  // console.log(req);
-  // console.log('get')
-  // console.log(req.query);
   console.log(req.query['d']);
 
   var question = req.query['d'];
+  var question = 'Please solve this puzzle:\nABCD\nA-->-\nB-=--\nC->--\nD-<--'
+  var puzzle = []
 
   if (question == 'Please return OK so that I know your service works.'){
     res.send('OK')
@@ -36,18 +34,71 @@ app.get('/', function (req, res) {
   } else if (question == 'Can you provide proof of eligibility to work in the US?'){
     res.send('Yes')
   } else if (question.startsWith('Please solve this puzzle')) {
-    console.log(question)
-    res.send('figuring out puzzle')
+    var result = '';
+    var a;
+    var b;
+    var c;
+    var d;
+    var info = question.split("\n");
+    var map = [a,b,c,d]
+
+    console.log(info);
+    // I know this is probably not the most efficient way to do this, but
+    // I am a bit stuck on how to do this better so I will just move forward.
+    // These nested for loops build out an array holding a value for each
+    // letter, A corresponds to 0, B to 1, etc.
+    for (let y = 0; y < 4; y++){
+      for (let j = 2; j < info.length; j++){
+        for (let i = 0; i < info[j].length; i++){
+          if (info[j][i] == '>'){
+            if (map[i-1] != undefined){
+              map[j-2]=map[i-1]+1
+            }
+          } else if (info[j][i] == '<'){
+            if (map[i-1] != undefined){
+              map[j-2]=map[i-1]-1
+            }
+          } else if (info[j][i] == '='){
+            map[j-2]=0
+          }
+        }
+      }
+    }
+    // The next bit of code structures the answer in the appropriate format
+    // using the fuction bellow and the hash table built above
+    function buildString(index, map){
+      var result = ''
+      for (let i = 0; i < map.length; i++){
+        if (map[index]>map[i]){
+          result += '>'
+        }
+        else if (map[index]<map[i]){
+          result += '<'
+        }
+        else if (map[index]==map[i]){
+          result += '='
+        }
+      }
+      return result
+    }
+
+    result += 'ABCD\n'
+    result += 'A'+ buildString(0) + '\n'
+    result += 'B'+ buildString(1) + '\n'
+    result += 'C'+ buildString(2) + '\n'
+    result += 'D'+ buildString(3)
+
+    res.send(result);
   }
-  // console.log(res);
-  res.send('OK')
+
+
 });
 
-app.post('/', function (req, res) {
-	console.log('post')
-  res.json({ 'test': 'test'})
-});
-
-function displayForm(res){
-    console.log(res)
-}
+// app.post('/', function (req, res) {
+// 	console.log('post')
+//   res.json({ 'test': 'test'})
+// });
+//
+// function displayForm(res){
+//     console.log(res)
+// }
